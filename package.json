@@ -1,6 +1,6 @@
 {
   "name": "art-portfolio",
-  "homepage": "https://Zaverose.github.io/art-portfolio",
+  "homepage": "https://Zaverose.github.io/art-portfolio/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -16,8 +16,6 @@
     "gh-pages": "^6.3.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-scripts": "^5.0.1",
-    "react-scrolllock": "^5.0.1",
     "react-zoom-pan-pinch": "^3.7.0"
   },
   "devDependencies": {

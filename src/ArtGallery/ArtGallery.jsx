@@ -1,5 +1,4 @@
 import React, { useState, useCallback, useEffect } from "react";
-import ScrollLock from "react-scrolllock";
 
 import { Nav } from "./Nav/Nav";
 import { Gallery } from "./Gallery/Gallery";
@@ -9,7 +8,6 @@ import { ZoomCardItem } from "./ZoomCardItem/ZoomCardItem";
 import "./art-gallery.css";
 
 export const ArtGallery = (props) => {
-  const [lock, setLock] = useState(false);
   const [search, setSearch] = useState("");
   const [cardModal, setCardModal] = useState([]);
   const [wide, setWide] = useState(false);
@@ -42,8 +40,6 @@ export const ArtGallery = (props) => {
     (props) => {
       // Update searched text in the state
 
-      setLock(false);
-
       setSearch(props.toLowerCase());
     },
     [] //search
@@ -52,7 +48,6 @@ export const ArtGallery = (props) => {
   const showArtCard = (card) => {
     console.log("show art fullscreen");
     console.log('ArtGallery card', card)
-    setLock(true);
     setCardModal(card)
   }
 
@@ -64,17 +59,14 @@ export const ArtGallery = (props) => {
       onClick={(e) => {
         if (e.target.id === "ArtGallery") {
           setCardModal(undefined);
-          setLock(false);
         }
       }}
     >
       <div
         className={
-          lock
-            ? wide
+          wide
               ? "art-gallery-background avoid-clicks"
               : "art-gallery-background avoid-clicks no-scroll"
-            : ""
         }
       >
         <Nav search={search} handleNavSearch={recieveNavSearchText} />
@@ -82,10 +74,9 @@ export const ArtGallery = (props) => {
           search={search}
           handleGalleryClickedCard={showArtCard}
         />
-        {wide && lock && <ScrollLock />}
       </div>
 
-      {cardModal === undefined || cardModal.length === 0 || !lock ? (
+      {cardModal === undefined || cardModal.length === 0 ? (
         <FloatingArrow />
       ) : (
         <div className={wide ? "zoom-card-wide" : "zoom-card-narrow"}>

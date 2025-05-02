@@ -8,6 +8,7 @@ import { ZoomCardItem } from "./ZoomCardItem/ZoomCardItem";
 import "./art-gallery.css";
 
 export const ArtGallery = (props) => {
+  const [lock, setLock] = useState(false);
   const [search, setSearch] = useState("");
   const [cardModal, setCardModal] = useState([]);
   const [wide, setWide] = useState(false);
@@ -40,14 +41,15 @@ export const ArtGallery = (props) => {
     (props) => {
       // Update searched text in the state
 
+      setLock(false);
+
       setSearch(props.toLowerCase());
     },
     [] //search
   );
 
   const showArtCard = (card) => {
-    console.log("show art fullscreen");
-    console.log('ArtGallery card', card)
+    setLock(true);
     setCardModal(card)
   }
 
@@ -59,11 +61,18 @@ export const ArtGallery = (props) => {
       onClick={(e) => {
         if (e.target.id === "ArtGallery") {
           setCardModal(undefined);
+          setLock(false);
         }
       }}
     >
       <div
-        className={"art-gallery-background"}
+        className={
+          lock
+            ? wide
+              ? "art-gallery-background avoid-clicks"
+              : "art-gallery-background avoid-clicks no-scroll"
+            : ""
+        }
       >
         <Nav search={search} handleNavSearch={recieveNavSearchText} />
         <Gallery
@@ -72,7 +81,7 @@ export const ArtGallery = (props) => {
         />
       </div>
 
-      {cardModal === undefined || cardModal.length === 0 ? (
+      {cardModal === undefined || cardModal.length === 0 || !lock ? (
         <FloatingArrow />
       ) : (
         <div className={wide ? "zoom-card-wide" : "zoom-card-narrow"}>

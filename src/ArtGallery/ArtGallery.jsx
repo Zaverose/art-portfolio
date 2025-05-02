@@ -63,11 +63,7 @@ export const ArtGallery = (props) => {
       }}
     >
       <div
-        className={
-          wide
-              ? "art-gallery-background avoid-clicks"
-              : "art-gallery-background avoid-clicks no-scroll"
-        }
+        className={"art-gallery-background"}
       >
         <Nav search={search} handleNavSearch={recieveNavSearchText} />
         <Gallery

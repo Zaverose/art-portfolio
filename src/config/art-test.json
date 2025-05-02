@@ -1,0 +1,7 @@
+[
+    {"filePaths": ["./testArt.avif"], "title": "Stripes", "date": "2024-11-15", "tags": ["2024", "animal", "tiger", "watercolor", "traditional", "portrait"]},
+    {"filePaths": ["./atomicCougar.avif"], "title": "Atomic Cougar", "date": "2024-11-22", "tags": ["2024", "animal", "cougar", "watercolor", "traditional", "portrait"]},
+    {"filePaths": ["./no-hood-no-sig.avif"], "title": "Invincible", "date": "2025-04-28", "tags": ["2025", "animal", "dog", "anthro", "digital", "portrait", "illustration"]},
+    {"filePaths": ["./senator-digital-oil-painting.avif"], "title": "Senator", "date": "2025-04-11", "tags": ["2025", "deer", "anthro", "digital", "portrait", "abstract"]},
+    {"filePaths": ["./toriel-11-x-14-digital-print-no-text.avif"], "title": "Stripes", "date": "2025-03-27", "tags": ["2025", "animal", "goat", "anthro", "digital", "portrait", "toriel"]}
+]

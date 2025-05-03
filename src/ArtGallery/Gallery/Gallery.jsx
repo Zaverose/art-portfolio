@@ -1,7 +1,8 @@
 import React from "react";
 import "./gallery.css";
 import { Card } from "../Card/Card";
-import artJSON from "../../config/art-test.json";
+import artJSON from "../../config/sfw/art.json";
+import cloudflare from "../../config/cloudflare.json";
 
 export const Gallery = ({search, handleGalleryClickedCard}) => {
   let cardItemsList = createCardsList(
@@ -15,9 +16,6 @@ export const Gallery = ({search, handleGalleryClickedCard}) => {
       <ul id="gallery" className="gallery">
         {cardItemsList}
       </ul>
-      <p id="cardsCounter" className="cards-counter">
-        {cardItemsList.length} items found
-      </p>
     </div>
   );
 };
@@ -36,7 +34,7 @@ function createCardsList(search, cardItemsData, recieveCardDetails) {
   let cardItemsList = data.map(({filePaths, title, date, tags}, i) => {
     return (
     <Card
-      url={filePaths[0]}
+      url={`${cloudflare.baseURL}/${filePaths[0]}`}
       title={title}
       date={date}
       tags={tags}
